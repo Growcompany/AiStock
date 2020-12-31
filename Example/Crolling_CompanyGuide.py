@@ -6,7 +6,7 @@ import time
 
 #함수 1.원하는 재무테이블 가져오기
 def fs_data(code):
-    url = 'http://comp.fnguide.com/SVO2/ASP/SVD_Finance.asp?pGB=1&cID=&MenuYn=Y&ReportGB=&NewMenuID=103&stkGb=701&gicode=' + code
+    url = 'http://comp.fnguide.com/SVO2/ASP/SVD_Finance.asp?pGB=1&cID=&MenuYn=Y&ReportGB=&NewMenuID=103&stkGb=701&gicode=A' + code
     res = requests.get(url)
     df = pd.read_html(res.text)
     temp_df=df[0]
@@ -28,7 +28,7 @@ def change_df(code,fs_df):
     return total_df
 
 #본문코드
-code = ['A005930','A000660', 'A207940', 'A035420', 'A068270']
+code = ['005930','000660', '207940', '035420', '068270']
 for num, code in enumerate(code):
     fs_data_frame=fs_data(code)
     fs_data_frame_changed=change_df(code,fs_data_frame)
