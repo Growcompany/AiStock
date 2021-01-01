@@ -1,0 +1,1 @@
+kr.investing.com/search/?q="찾을 회사이름"
